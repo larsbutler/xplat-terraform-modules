@@ -78,6 +78,8 @@ resource "aws_api_gateway_deployment" "stage" {
   lifecycle {
     create_before_destroy = true
   }
+
+  depends_on = ["aws_api_gateway_rest_api.api"]
 }
 
 data "aws_acm_certificate" "ssl_cert" {
